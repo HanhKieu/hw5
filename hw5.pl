@@ -43,3 +43,14 @@ mutual_novels(N) :-
 	fan(monica, NC), fan(ross, ND), member(N, NC), member(N, ND);
 	fan(monica, NA), fan(phoebe, NB), member(N, NA), member(N, NB);
 	fan(ross, NE), fan(phoebe, NF), member(N, NE), member(N, NF).
+
+
+append([],X,X) :- !.
+append([A|X],Y,[A|Z]) :- append(X,Y,Z).
+
+insertHead(X,[],[]):- !.
+insertHead(X, [H1|N] , [H2|V]) :- insertHead(X, N, V), append(H1, X, H2).
+
+powerSet([], [[]]).
+powerSet([X|T],Y) :- powerSet(T, N), insertHead([X], N, V), append(N, V, Y).
+	
