@@ -196,3 +196,5 @@ zeroInputOneOutput(Predicate,A1,SA1) :-
 printstring([]).
 printstring([H|T]) :- put(H), printstring(T).
 
+
+
